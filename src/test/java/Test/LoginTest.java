@@ -25,6 +25,9 @@ public class LoginTest extends BaseTest {
     }
     @Test
     public void Negative(){
-
+        loginPage = new LoginPage(driver);
+        loginPage.EnterUserName("secret_sauce");
+        loginPage.EnterPassword("standard_user");
+        loginPage.ClickLoginButton();
     }
 }
