@@ -23,4 +23,8 @@ public class LoginTest extends BaseTest {
         loginPage.WaitUntilUrlChange();
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
+    @Test
+    public void Negative(){
+
+    }
 }
