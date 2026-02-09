@@ -24,7 +24,7 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
     @Test
-    public void InValid(){
+    public void Negative(){
 
     }
 }
