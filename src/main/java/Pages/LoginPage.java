@@ -17,6 +17,8 @@ public class LoginPage extends BasePage {
     public WebElement Password;
     @FindBy(id = "login-button")
     public WebElement LoginButton;
+    @FindBy(xpath = "//div[@class=\"error-message-container error\"]")
+    public WebElement ErrorMessage;
     public void EnterUserName(String UserName){
         WaitUntilElementDisplayed(UserNameTextField);
         UserNameTextField.sendKeys(UserName);
@@ -31,5 +33,13 @@ public class LoginPage extends BasePage {
     }
     public void WaitUntilUrlChange(){
         WaitForExpectedUrl("https://www.saucedemo.com/inventory.html");
+    }
+    public boolean IsErrorMessageDisplayed(){
+        try {
+            WaitUntilElementDisplayed(ErrorMessage);
+            return ErrorMessage.isDisplayed();
+        }catch (Exception e){
+            return false;
+        }
     }
 }
