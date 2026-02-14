@@ -8,15 +8,14 @@ import org.openqa.selenium.interactions.Actions;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 
-import javax.swing.*;
 import java.time.Duration;
 
-public class ElementUtils {
+public class CommonUtils {
     protected WebDriver driver;
     protected WebDriverWait wait;
     public Actions action;
 
-    public ElementUtils(WebDriver driver) {
+    public CommonUtils(WebDriver driver) {
         this.driver = driver;
         this.wait=new WebDriverWait(driver, Duration.ofSeconds(10));
         this.action=new Actions(driver);
@@ -44,5 +43,15 @@ public class ElementUtils {
     }
     public void WaitForExpectedUrl(String url){
         wait.until(ExpectedConditions.urlToBe(url));
+    }
+    public Double StringToIntConversion(String s){
+        char[] arr=s.toCharArray();
+        StringBuilder stringBuilder=new StringBuilder();
+        for (char c : arr) {
+            if (Character.isDigit(c)) {
+                stringBuilder.append(c);
+            }
+        }
+        return Double.parseDouble(String.valueOf(stringBuilder));
     }
 }
