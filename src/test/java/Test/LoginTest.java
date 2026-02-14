@@ -24,7 +24,11 @@ public class LoginTest extends BaseTest {
         Assert.assertEquals(driver.getCurrentUrl(), "https://www.saucedemo.com/inventory.html");
     }
     @Test
-    public void Negative(){
-
+    public void InValidLogin(){
+        loginPage = new LoginPage(driver);
+        loginPage.EnterUserName("secret_sauce");
+        loginPage.EnterPassword("standard_user");
+        loginPage.ClickLoginButton();
+        Assert.assertTrue(loginPage.IsErrorMessageDisplayed());
     }
 }
